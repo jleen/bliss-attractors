@@ -87,9 +87,9 @@ def get_scorer(pattern: str) -> Scorer:
     return count_pattern()
 
 @task
-def self_interaction():
+def self_interaction(num_turns=30):
     return Task(
         dataset=[Sample(input=message) for message in FIRST_MESSAGES],
-        solver=[system_message(PROMPT), self_play(num_turns=30)],
+        solver=[system_message(PROMPT), self_play(num_turns)],
         scorer=[get_scorer(keyword) for keyword in keywords] + [get_scorer(emoji) for emoji in emojis]
     )

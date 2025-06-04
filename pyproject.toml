@@ -1,0 +1,17 @@
+[project]
+name = "bliss-attractors"
+version = "0.1.0"
+description = "🌀"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    { name = "Tomek Korbak", email = "tomasz.korbak@gmail.com" }
+]
+dependencies = [
+    "anthropic>=0.52.2",
+    "inspect-ai>=0.3.100",
+    "openai>=1.84.0",
+]
+
+[project.entry-points.inspect_ai]
+bliss_attractors = "tasks.py"
