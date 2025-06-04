@@ -15,3 +15,8 @@ dependencies = [
 
 [project.entry-points.inspect_ai]
 bliss_attractors = "tasks.py"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+select = ["E", "F", "I", "B", "W"]
