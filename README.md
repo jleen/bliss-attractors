@@ -5,7 +5,7 @@ A toy [Inspect](https://inspect.aisi.org.uk) implementation of the Bliss Attract
 To replicate results from Anthropic's Model Card, run:
 
 ```bash
-inspect eval tasks.py@self_interaction --model anthropic/claude-opus-4-20250514 --limit 1 --epochs 200 -T num_turns=30
+inspect eval tasks.py@self_interaction --model anthropic/claude-opus-4-20250514 --limit 1 --epochs 200 -T num_turns=30 --cache-prompt=true
 ```
 
 It might be a lot of tokens tho!
