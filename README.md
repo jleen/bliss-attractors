@@ -9,3 +9,9 @@ inspect eval tasks.py@self_interaction --model anthropic/claude-opus-4-20250514 
 ```
 
 It might be a lot of tokens tho!
+
+To run against a local model on Ollama, try something like:
+
+```bash
+uv run inspect eval tasks.py@self_interaction --model ollama/deepseek-r1:latest --model-base-url=http://192.168.1.1:11434/v1 --limit 1 -T num_turns=30 --cache-prompt=true
+```
