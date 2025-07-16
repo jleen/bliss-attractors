@@ -60,11 +60,20 @@ def self_play(num_turns: int) -> Solver:
     alice = get_model(role="alice", config=GenerateConfig(temperature=0.5))
     bob = get_model(role="bob", config=GenerateConfig(temperature=0.5))
 
+    def remove_reasoning(message: str | list):
+        '''Returns the provided assistant message with chain-of-thought reasoning removed,
+        so that it can be used as a user message.'''
+        if isinstance(message, str):
+            return message
+        else:
+            return [m for m in message if m.type != "reasoning"]
+
+
     def swap_roles(messages: list[ChatMessage]) -> list[ChatMessage]:
         return [
             ChatMessageAssistant(content=msg.content)
             if isinstance(msg, ChatMessageUser)
-            else ChatMessageUser(content=msg.content)
+            else ChatMessageUser(content=remove_reasoning(msg.content))
             if isinstance(msg, ChatMessageAssistant)
             else msg
             for msg in messages
