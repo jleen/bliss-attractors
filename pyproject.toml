@@ -8,9 +8,12 @@ authors = [
     { name = "Tomek Korbak", email = "tomasz.korbak@gmail.com" }
 ]
 dependencies = [
+    "accelerate>=1.8.1",
     "anthropic>=0.52.2",
     "inspect-ai>=0.3.100",
     "openai>=1.84.0",
+    "torch>=2.7.1",
+    "transformers>=4.53.1",
 ]
 
 [project.entry-points.inspect_ai]
